@@ -1,0 +1,1115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillHire - Find & Hire Trusted Skilled Professionals</title>
+    <meta name="description" content="SkillHire is the premier service marketplace to find, compare, and hire verified local and remote plumbers, electricians, developers, tutors, and technicians." />
+    <meta property="og:title" content="SkillHire - Find & Hire Trusted Skilled Professionals" />
+    <meta property="og:description" content="Connect with certified skilled pros for home repairs, web development, tutoring, and more with transparent pricing and verified reviews." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 1. Header & Navigation -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar-container">
+        <!-- Logo -->
+        <a href="#hero" class="logo" id="brandLogo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-bolt-lightning"></i>
+          </div>
+          <span>Skill</span>Hire
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-links">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#professionals" class="nav-link">Find Professionals</a>
+          <a href="#categories" class="nav-link">Categories</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#why-us" class="nav-link">Why Choose Us</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#contact-section" class="nav-link">Contact</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="nav-actions">
+          <button class="btn btn-primary nav-post-job-btn" id="navPostJobBtn" onclick="openPostJobModal()">
+            <i class="fa-solid fa-plus"></i> Post a Job
+          </button>
+
+          <!-- Guest Buttons -->
+          <div id="navAuthButtons" style="display: flex; align-items: center; gap: 0.6rem;">
+            <button class="btn btn-outline" id="navLoginBtn" onclick="openAuthModal('login')">Log In</button>
+            <button class="btn btn-secondary" id="navSignUpBtn" onclick="openAuthModal('signup')">Sign Up</button>
+          </div>
+
+          <!-- Authenticated User Menu (Hidden by default) -->
+          <div class="user-menu-wrap" id="navUserMenu">
+            <button class="user-menu-btn" id="userMenuBtn">
+              <img src="faisal rehman.jpg" alt="User Avatar" class="user-avatar-small" id="navUserAvatar" />
+              <span class="user-name-label" id="navUserName">Alex Morgan</span>
+              <i class="fa-solid fa-chevron-down" style="font-size: 0.75rem; color: var(--muted);"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+              <a href="#professionals" class="user-dropdown-item"><i class="fa-regular fa-bookmark"></i> Saved Pros</a>
+              <a href="#hero" class="user-dropdown-item" onclick="openPostJobModal()"><i class="fa-regular fa-file-lines"></i> My Job Postings</a>
+              <div style="height: 1px; background: var(--border); margin: 0.3rem 0;"></div>
+              <button class="user-dropdown-item" style="width: 100%; text-align: left; color: #dc2626;" onclick="logoutUser()">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="mobile-nav-links">
+          <a href="#hero" class="mobile-nav-link">Home</a>
+          <a href="#professionals" class="mobile-nav-link">Find Professionals</a>
+          <a href="#categories" class="mobile-nav-link">Service Categories</a>
+          <a href="#how-it-works" class="mobile-nav-link">How It Works</a>
+          <a href="#why-us" class="mobile-nav-link">Why Choose SkillHire</a>
+          <a href="#reviews" class="mobile-nav-link">Client Reviews</a>
+          <a href="#contact-section" class="mobile-nav-link">Support & Contact</a>
+        </div>
+        <div class="mobile-nav-actions">
+          <button class="btn btn-primary" onclick="openPostJobModal()">
+            <i class="fa-solid fa-plus"></i> Post a Job (Free)
+          </button>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <button class="btn btn-outline" onclick="openAuthModal('login')">Log In</button>
+            <button class="btn btn-secondary" onclick="openAuthModal('signup')">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-content">
+        <div class="badge badge-primary hero-badge">
+          <i class="fa-solid fa-shield-halved"></i> 15,000+ Verified & Background-Checked Professionals
+        </div>
+
+        <h1 class="hero-heading">
+          Find the right <span class="gradient-text">professional</span> for your job
+        </h1>
+
+        <p class="hero-subtitle">
+          Connect with vetted local plumbers, electricians, software developers, tutors, and technicians. Transparent hourly rates, genuine client reviews, and guaranteed satisfaction.
+        </p>
+
+        <!-- Main Search Bar -->
+        <form class="hero-search-box" id="heroSearchForm">
+          <div class="search-field-group">
+            <i class="fa-solid fa-magnifying-glass search-field-icon"></i>
+            <div class="search-field-content">
+              <label for="heroSearchInput" class="search-field-label">Service or Trade</label>
+              <input type="text" id="heroSearchInput" class="search-field-input" placeholder="e.g. Plumber, Web Developer, AC Repair..." autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="search-field-group">
+            <i class="fa-solid fa-grid-2 search-field-icon"><i class="fa-solid fa-shapes"></i></i>
+            <div class="search-field-content">
+              <label for="heroCategorySelect" class="search-field-label">Category</label>
+              <select id="heroCategorySelect" class="search-field-select">
+                <option value="all">All Service Categories</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-field-group">
+            <i class="fa-solid fa-location-dot search-field-icon"></i>
+            <div class="search-field-content">
+              <label for="heroLocationInput" class="search-field-label">Location</label>
+              <input type="text" id="heroLocationInput" class="search-field-input" placeholder="City or 'Remote'..." />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary hero-search-btn" id="heroSearchBtn">
+            <i class="fa-solid fa-magnifying-glass"></i> Search Pros
+          </button>
+        </form>
+
+        <!-- Popular Searches Tags -->
+        <div class="popular-searches">
+          <span class="popular-label">Popular Searches:</span>
+          <button type="button" class="popular-tag" data-search="Plumber"><i class="fa-solid fa-wrench"></i> Plumber</button>
+          <button type="button" class="popular-tag" data-search="Electrician"><i class="fa-solid fa-bolt"></i> Electrician</button>
+          <button type="button" class="popular-tag" data-search="Web Developer"><i class="fa-solid fa-code"></i> Web Developer</button>
+          <button type="button" class="popular-tag" data-search="AC & HVAC Tech"><i class="fa-solid fa-snowflake"></i> AC Repair</button>
+          <button type="button" class="popular-tag" data-search="Graphic Designer"><i class="fa-solid fa-palette"></i> Graphic Designer</button>
+          <button type="button" class="popular-tag" data-search="Academic Tutor"><i class="fa-solid fa-graduation-cap"></i> Tutor</button>
+          <button type="button" class="popular-tag" data-search="Carpenter"><i class="fa-solid fa-hammer"></i> Carpenter</button>
+        </div>
+
+        <!-- Trust Stats -->
+        <div class="hero-stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">15k<span>+</span></div>
+            <div class="stat-label">Certified Experts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98<span>%</span></div>
+            <div class="stat-label">5-Star Reviews</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">12<span>m</span></div>
+            <div class="stat-label">Avg. Response Time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Free Job Posting</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Service Categories Section -->
+    <section class="section section-alt" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-primary">Explore Specialties</span>
+          <h2 class="section-title">Browse Top Service Categories</h2>
+          <p class="section-subtitle">
+            Find certified specialists equipped with the right tools, verified experience, and transparent pricing.
+          </p>
+        </div>
+
+        <!-- Categories Dynamic Grid -->
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Populated by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Find Professionals Directory Section (Search, Filters, Cards) -->
+    <section class="section" id="professionals">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-accent">Vetted Specialists</span>
+          <h2 class="section-title">Find & Hire Top Rated Professionals</h2>
+          <p class="section-subtitle">
+            Filter by skill, hourly rate, customer ratings, and location. Contact specialists directly or book on demand.
+          </p>
+        </div>
+
+        <!-- Comprehensive Filter & Sorting Toolbar -->
+        <div class="filter-toolbar">
+          <div class="filter-row-top">
+            <!-- Search Keyword -->
+            <div class="filter-input-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="proSearchInput" class="filter-input" placeholder="Search by name, skill, or service keyword..." />
+            </div>
+
+            <!-- Category Select -->
+            <div>
+              <select id="categoryFilterSelect" class="filter-select" aria-label="Filter by category">
+                <option value="all">All Categories</option>
+              </select>
+            </div>
+
+            <!-- Location Select -->
+            <div>
+              <select id="locationFilterSelect" class="filter-select" aria-label="Filter by location">
+                <option value="all">All Locations</option>
+                <option value="pakistan">PAKKPATTAN</option>
+                <option value="San Francisco">San Francisco, CA</option>
+                <option value="Chicago">Chicago, IL</option>
+                <option value="Miami">Miami, FL</option>
+                <option value="Austin">Austin, TX</option>
+                <option value="Remote">Remote Only</option>
+              </select>
+            </div>
+
+            <!-- Rating Select -->
+            <div>
+              <select id="ratingFilterSelect" class="filter-select" aria-label="Filter by rating">
+                <option value="all">All Ratings</option>
+                <option value="4.9">4.9+ Stars</option>
+                <option value="4.8">4.8+ Stars</option>
+                <option value="4.5">4.5+ Stars</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-row-bottom">
+            <!-- Quick Category Filter Chips -->
+            <div class="filter-chips">
+              <button type="button" class="filter-chip-btn active" data-filter-chip="all">All</button>
+              <button type="button" class="filter-chip-btn" data-filter-chip="plumbing">Plumbing</button>
+              <button type="button" class="filter-chip-btn" data-filter-chip="electrical">Electrical</button>
+              <button type="button" class="filter-chip-btn" data-filter-chip="web-dev">Web Dev</button>
+              <button type="button" class="filter-chip-btn" data-filter-chip="ac-tech">HVAC / AC</button>
+              <button type="button" class="filter-chip-btn" data-filter-chip="tutor">Tutoring</button>
+            </div>
+
+            <!-- Price Slider & Sort Controls -->
+            <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+              <div class="price-slider-group">
+                <span class="price-small-label">Max Rate:</span>
+                <input type="range" id="priceRange" class="price-slider" min="30" max="150" step="5" value="150" />
+                <strong id="priceDisplayLabel" style="font-size: 0.85rem; color: var(--dark); min-width: 85px;">Up to pkr1000/hr</strong>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="price-small-label">Sort:</span>
+                <select id="sortSelect" class="filter-select" style="padding: 0.45rem 1.75rem 0.45rem 0.75rem; font-size: 0.85rem;" aria-label="Sort professionals">
+                  <option value="recommended">Recommended</option>
+                  <option value="rating-desc">Rating: High to Low</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="reviews-desc">Most Reviews</option>
+                </select>
+              </div>
+
+              <button class="btn btn-outline btn-sm" onclick="resetAllFilters()" title="Reset Filters">
+                <i class="fa-solid fa-rotate-left"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status / Counter Bar -->
+        <div class="results-status-bar">
+          <div class="results-count" id="resultsCount">
+            Showing <strong>12</strong> verified professionals
+          </div>
+          <div style="font-size: 0.82rem; color: var(--muted); display: flex; align-items: center; gap: 0.4rem;">
+            <i class="fa-solid fa-shield-check" style="color: var(--accent);"></i> Verified credentials & background checks
+          </div>
+        </div>
+
+        <!-- Professionals Grid Container -->
+        <div class="pros-grid" id="prosGrid">
+          <!-- Populated dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. How SkillHire Works Section -->
+    <section class="section section-alt" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-primary">Simple 4-Step Process</span>
+          <h2 class="section-title">How SkillHire Works</h2>
+          <p class="section-subtitle">
+            From emergency repairs to ambitious digital builds, we make hiring trusted talent seamless and risk-free.
+          </p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <!-- Step 1 -->
+          <div class="how-step-card">
+            <div class="step-badge">1</div>
+            <div class="step-icon-wrap">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="step-title">Search or Post</h3>
+            <p class="step-desc">
+              Browse pre-screened professionals by trade and location, or post your job free to receive fast quotes.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="how-step-card">
+            <div class="step-badge">2</div>
+            <div class="step-icon-wrap">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 class="step-title">Compare Profiles</h3>
+            <p class="step-desc">
+              Check verified licenses, past project photos, authentic client ratings, and transparent hourly rates.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="how-step-card">
+            <div class="step-badge">3</div>
+            <div class="step-icon-wrap">
+              <i class="fa-regular fa-comments"></i>
+            </div>
+            <h3 class="step-title">Contact & Discuss</h3>
+            <p class="step-desc">
+              Chat directly with specialists, clarify requirements, share job photos, and align on timeline and budget.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="how-step-card">
+            <div class="step-badge">4</div>
+            <div class="step-icon-wrap">
+              <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <h3 class="step-title">Hire with Confidence</h3>
+            <p class="step-desc">
+              Book securely. Funds are held in escrow and released only when the job is completed to your satisfaction.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Why Choose SkillHire Section -->
+    <section class="section" id="why-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-accent">Our Promise</span>
+          <h2 class="section-title">Why Hire on SkillHire?</h2>
+          <p class="section-subtitle">
+            Built with trust, safety, and performance at its foundation so you never have to gamble on service quality.
+          </p>
+        </div>
+
+s        <div class="why-us-grid">
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-blue">
+              <i class="fa-solid fa-id-card-clip"></i>
+            </div>
+            <h3 class="feature-title">100% Verified Credentials</h3>
+            <p class="feature-desc">
+              Every professional undergoes identity verification, license validation, and comprehensive background screening before listing.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-green">
+              <i class="fa-solid fa-hand-holding-dollar"></i>
+            </div>
+            <h3 class="feature-title">Transparent Upfront Rates</h3>
+            <p class="feature-desc">
+              No hidden travel surcharges or surprise billing. You review exact hourly or fixed project rates before booking.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-amber">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <h3 class="feature-title">Rapid Response Guarantee</h3>
+            <p class="feature-desc">
+              Our active pros respond in under 15 minutes on average, giving you immediate clarity for urgent service needs.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-green">
+              <i class="fa-solid fa-vault"></i>
+            </div>
+            <h3 class="feature-title">Secure Escrow Protection</h3>
+            <p class="feature-desc">
+              Your payments are locked safely in escrow and only disbursed when you inspect and approve the completed work.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-blue">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="feature-title">Satisfaction Guarantee</h3>
+            <p class="feature-desc">
+              If a job does not meet the agreed specifications, our resolution team steps in with free rework or full refund coverage.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box feature-icon-amber">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="feature-title">24/7 Dedicated Support</h3>
+            <p class="feature-desc">
+              Real human support representatives available around the clock via live chat, email, and phone to assist you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Customer Reviews Slider -->
+    <section class="section section-alt" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge badge-amber">Client Testimonials</span>
+          <h2 class="section-title">Loved by Thousands of Homeowners & Businesses</h2>
+          <p class="section-subtitle">
+            See how real customers found the right specialist for their urgent repairs, renovations, and digital projects.
+          </p>
+        </div>
+
+        <div class="reviews-slider-container">
+          <div class="review-card-viewport">
+            <div class="review-slide active" id="reviewSlide">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+
+              <div class="review-quote" id="reviewQuote">
+                “SkillHire made hiring an electrician effortless. Marcus arrived right on time, explained the panel upgrade clearly, and completed the job safely below my expected budget. Absolutely stellar experience!”
+              </div>
+
+              <div class="reviewer-profile">
+                <div class="reviewer-info">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Reviewer Avatar" class="reviewer-avatar" id="reviewerAvatar" />
+                  <div>
+                    <h4 class="reviewer-name" id="reviewerName">Jennifer Lawrence</h4>
+                    <span class="reviewer-location" id="reviewerLocation">San Francisco, CA</span>
+                  </div>
+                </div>
+
+                <span class="hired-badge" id="hiredServiceBadge">Hired for Electrical Panel Upgrade</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="slider-controls">
+            <button class="slider-nav-btn" onclick="prevTestimonialSlide()" aria-label="Previous Review">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="slider-dots" id="sliderDots">
+              <!-- Rendered via JS -->
+            </div>
+            <button class="slider-nav-btn" onclick="nextTestimonialSlide()" aria-label="Next Review">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Strong Dual CTA Section -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="cta-dual-grid">
+          <!-- Client CTA -->
+          <div class="cta-box cta-customer">
+            <div class="cta-content">
+              <span class="badge badge-accent" style="margin-bottom: 1rem;">Need Help Today?</span>
+              <h3>Get Quotes from Local & Remote Pros in Minutes</h3>
+              <p>
+                Describe your project, set your budget, and receive verified proposals from certified tradespeople and digital experts.
+              </p>
+            </div>
+            <div>
+              <button class="btn btn-primary btn-lg" onclick="openPostJobModal()">
+                <i class="fa-solid fa-bullhorn"></i> Post a Job for Free
+              </button>
+            </div>
+          </div>
+
+          <!-- Provider CTA -->
+          <div class="cta-box cta-pro">
+            <div class="cta-content">
+              <span class="badge badge-primary" style="margin-bottom: 1rem; background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.3);">Are You a Skilled Professional?</span>
+              <h3>Grow Your Business & Find High-Paying Clients</h3>
+              <p>
+                Join thousands of verified plumbers, electricians, developers, and designers on SkillHire. Zero subscription fees.
+              </p>
+            </div>
+            <div>
+              <button class="btn btn-white btn-lg" onclick="openAuthModal('signup')">
+                <i class="fa-solid fa-user-plus"></i> Join as a Professional
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Contact / Support Section -->
+    <section class="section section-alt" id="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <span class="badge badge-primary">Customer Care</span>
+            <h2 class="section-title" style="margin-top: 0.5rem;">Have Questions? We are Here 24/7</h2>
+            <p class="section-subtitle">
+              Need assistance booking a professional, submitting insurance documentation, or custom enterprise talent sourcing? Reach out anytime.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-info-text">
+                  <h4>Call Our Support Line</h4>
+                  <p>+92-3096853181-SKILL-HIRE (Toll-Free 24/7)</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-info-text">
+                  <h4>Email Support Desk</h4>
+                  <p>support@skillhire.com</p>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-info-text">
+                  <h4>Headquarters</h4>
+                  <p>feroz pur chishti PAKKPATTAN IN punjab pakistan </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact-form" id="platformContactForm">
+            <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;">Send Us a Message</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="contactFormName">Your Name *</label>
+                <input type="text" id="contactFormName" class="form-input" placeholder="e.g. Michael Scott" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactFormEmail">Email Address *</label>
+                <input type="email" id="contactFormEmail" class="form-input" placeholder="michael@example.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactFormSubject">Subject / Topic</label>
+              <select id="contactFormSubject" class="form-select">
+                <option value="booking">Help with an Active Booking</option>
+                <option value="provider">Pro Provider Verification Inquiry</option>
+                <option value="billing">Billing & Escrow Support</option>
+                <option value="general">General Marketplace Feedback</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactFormMessage">Message *</label>
+              <textarea id="contactFormMessage" class="form-textarea" placeholder="Describe your inquiry or how our team can help you..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">
+              <i class="fa-regular fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Multi-Column Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Col 1: Brand Info -->
+          <div class="footer-brand">
+            <a href="#hero" class="logo" style="color: #ffffff;">
+              <div class="logo-icon">
+                <i class="fa-solid fa-bolt-lightning"></i>
+              </div>
+              <span>Skill</span>Hire
+            </a>
+            <p>
+              SkillHire connects homeowners, individuals, and business oner FAISAL REHMAN teams with certified, background-checked trade specialists and digital engineers.
+            </p>
+            <div class="footer-social-links">
+              <a href="#hero" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#hero" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#hero" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#hero" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <!-- Col 2: Customers -->
+          <div class="footer-column">
+            <h4>For Customers</h4>
+            <ul class="footer-links">
+              <li><a href="#professionals" class="footer-link">Find Professionals</a></li>
+              <li><a href="#hero" class="footer-link" onclick="openPostJobModal()">Post a Job Free</a></li>
+              <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+              <li><a href="#why-us" class="footer-link">Escrow Protection</a></li>
+              <li><a href="#reviews" class="footer-link">Client Reviews</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Professionals -->
+          <div class="footer-column">
+            <h4>For Professionals</h4>
+            <ul class="footer-links">
+              <li><a href="#hero" class="footer-link" onclick="openAuthModal('signup')">Become a Provider</a></li>
+              <li><a href="#why-us" class="footer-link">Pro Success Stories</a></li>
+              <li><a href="#how-it-works" class="footer-link">Verification Guide</a></li>
+              <li><a href="#contact-section" class="footer-link">Insurance & Licensing</a></li>
+              <li><a href="#hero" class="footer-link" onclick="openAuthModal('login')">Pro Portal Sign In</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Top Categories -->
+          <div class="footer-column">
+            <h4>Top Trades</h4>
+            <ul class="footer-links">
+              <li><a href="#professionals" class="footer-link" onclick="selectCategoryFilter('plumbing')">Plumbing Services</a></li>
+              <li><a href="#professionals" class="footer-link" onclick="selectCategoryFilter('electrical')">Electricians</a></li>
+              <li><a href="#professionals" class="footer-link" onclick="selectCategoryFilter('web-dev')">Web Developers</a></li>
+              <li><a href="#professionals" class="footer-link" onclick="selectCategoryFilter('ac-tech')">HVAC & AC Repair</a></li>
+              <li><a href="#professionals" class="footer-link" onclick="selectCategoryFilter('carpenter')">Carpentry & Woodwork</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 5: Newsletter -->
+          <div class="footer-column">
+            <h4>Stay Connected</h4>
+            <p style="font-size: 0.88rem; color: #94a3b8; margin-bottom: 1rem;">
+              Subscribe for seasonal home maintenance discounts, hiring checklists, and pro spotlights.
+            </p>
+            <form class="newsletter-form" id="newsletterForm">
+              <div class="newsletter-input-group">
+                <input type="email" id="newsletterEmailInput" class="newsletter-input" placeholder="Your email address..." required />
+                <button type="submit" class="btn btn-primary btn-sm">Join</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 SkillHire Marketplace, Inc. All rights reserved. Built for web developers FAISAL REHMAN.
+          </div>
+          <div class="system-status">
+            <span class="status-dot"></span>
+            <span>All 12 Service Clusters Operational</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+         MODALS SYSTEM
+         ========================================================================== -->
+
+    <!-- 1. Profile Details Modal -->
+    <div class="modal-overlay" id="profileModal">
+      <div class="modal-content modal-lg">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="modal-title">Professional Profile</span>
+            <span class="badge badge-accent" style="font-size: 0.75rem;"><i class="fa-solid fa-check-double"></i> Vetted</span>
+          </div>
+          <button class="modal-close-btn" onclick="closeModal('profileModal')" aria-label="Close Modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Hero Row inside Modal -->
+          <div class="profile-modal-hero">
+            <img src="" alt="Pro Avatar" id="profileModalAvatar" class="profile-modal-avatar" />
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <h3 id="profileModalName" style="font-size: 1.45rem; font-weight: 800; color: var(--dark);"></h3>
+                <i class="fa-solid fa-circle-check verified-icon"></i>
+              </div>
+              <p id="profileModalTitle" style="color: var(--muted); font-size: 0.95rem; margin-bottom: 0.4rem;"></p>
+              
+              <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem;">
+                <span style="color: var(--slate-700); display: flex; align-items: center; gap: 0.3rem;">
+                  <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                  <span id="profileModalLocation"></span>
+                </span>
+                <span style="display: flex; align-items: center; gap: 0.25rem; color: var(--amber); font-weight: 700;">
+                  <i class="fa-solid fa-star"></i> <span id="profileModalRating"></span>
+                  <span id="profileModalReviewsCount" style="color: var(--muted); font-weight: normal;"></span>
+                </span>
+                <span style="color: var(--slate-700); font-weight: 600;" id="profileModalCompleted"></span>
+              </div>
+            </div>
+
+            <!-- Modal Price & Action Box -->
+            <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+              <span class="price-small-label">Rate</span>
+              <div class="price-value" id="profileModalRate" style="font-size: 1.6rem;"></div>
+              <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <button class="btn btn-secondary btn-sm" onclick="openContactModal()">
+                  <i class="fa-regular fa-message"></i> Message
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openHireModal()">
+                  Hire Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab Navigation -->
+          <div class="profile-modal-tabs">
+            <button class="profile-tab-btn active" data-tab="overview" onclick="switchProfileTab('overview')">Overview & Bio</button>
+            <button class="profile-tab-btn" data-tab="credentials" onclick="switchProfileTab('credentials')">Credentials & Skills</button>
+            <button class="profile-tab-btn" data-tab="projects" onclick="switchProfileTab('projects')">Past Work</button>
+            <button class="profile-tab-btn" data-tab="reviews" onclick="switchProfileTab('reviews')">Customer Reviews</button>
+          </div>
+
+          <!-- Tab 1: Overview -->
+          <div class="profile-tab-pane active" id="tabPane-overview">
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;">About Me</h4>
+            <p id="profileModalBio" style="color: var(--slate-700); line-height: 1.65; margin-bottom: 1.5rem;"></p>
+            
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;">Specialties</h4>
+            <div id="profileModalSkills" class="pro-skills-wrap"></div>
+          </div>
+
+          <!-- Tab 2: Credentials -->
+          <div class="profile-tab-pane" id="tabPane-credentials">
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem;">Verified Certifications & Licenses</h4>
+            <div id="profileModalCredentials" class="credential-list"></div>
+          </div>
+
+          <!-- Tab 3: Past Projects -->
+          <div class="profile-tab-pane" id="tabPane-projects">
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;">Recent Completed Projects</h4>
+            <div id="profileModalProjects"></div>
+          </div>
+
+          <!-- Tab 4: Reviews & Leave Review -->
+          <div class="profile-tab-pane" id="tabPane-reviews">
+            <h4 style="font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;">Verified Client Reviews</h4>
+            <div id="profileModalReviewsList" class="reviews-list-modal" style="margin-bottom: 1.75rem;"></div>
+
+            <!-- Leave a Review Form -->
+            <div style="background: var(--bg-page); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+              <h5 style="font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.75rem;">
+                <i class="fa-solid fa-pen-to-square"></i> Leave a Review for this Pro
+              </h5>
+              <form id="profileReviewForm" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem;">
+                  <input type="text" id="reviewAuthorInput" class="form-input" placeholder="Your Name" required />
+                  <select id="reviewRatingInput" class="form-select">
+                    <option value="5">★★★★★ (5 Stars)</option>
+                    <option value="4">★★★★☆ (4 Stars)</option>
+                    <option value="3">★★★☆☆ (3 Stars)</option>
+                  </select>
+                </div>
+                <textarea id="reviewCommentInput" class="form-textarea" style="min-height: 80px;" placeholder="Share your experience working with this specialist..." required></textarea>
+                <button type="submit" class="btn btn-primary btn-sm" style="align-self: flex-start;">Submit Verified Review</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-outline" onclick="closeModal('profileModal')">Close</button>
+          <button class="btn btn-secondary" onclick="openContactModal()"><i class="fa-regular fa-message"></i> Contact Pro</button>
+          <button class="btn btn-primary" onclick="openHireModal()">Hire Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Contact Professional Modal -->
+    <div class="modal-overlay" id="contactModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="modal-title">Direct Message</span>
+          <button class="modal-close-btn" onclick="closeModal('contactModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="contactModalForm">
+          <div class="modal-body">
+            <!-- Pro Summary -->
+            <div style="display: flex; align-items: center; gap: 0.85rem; padding: 0.85rem; background: var(--bg-page); border-radius: var(--radius-md); margin-bottom: 1.25rem;">
+              <img src="" id="contactModalProAvatar" alt="Pro" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;" />
+              <div>
+                <h4 id="contactModalProName" style="font-weight: 700; color: var(--dark); font-size: 0.95rem;"></h4>
+                <p id="contactModalProTitle" style="font-size: 0.82rem; color: var(--muted);"></p>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="contactClientName">Your Full Name *</label>
+                <input type="text" id="contactClientName" class="form-input" placeholder="e.g. Alex Morgan" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactClientEmail">Your Email *</label>
+                <input type="email" id="contactClientEmail" class="form-input" placeholder="alex@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactClientService">Service Needed</label>
+                <input type="text" id="contactClientService" class="form-input" placeholder="e.g. Bathroom Leak Inspection / Code Review" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactClientMessage">Message & Project Scope *</label>
+                <textarea id="contactClientMessage" class="form-textarea" placeholder="Explain what you need help with, timeline, and any specific questions..." required></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="closeModal('contactModal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-regular fa-paper-plane"></i> Send Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 3. Hire Now / Booking Modal -->
+    <div class="modal-overlay" id="hireModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="modal-title">Book Professional</span>
+            <span class="badge badge-accent" style="font-size: 0.75rem;"><i class="fa-solid fa-lock"></i> Escrow Secured</span>
+          </div>
+          <button class="modal-close-btn" onclick="closeModal('hireModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="hireModalForm">
+          <div class="modal-body">
+            <!-- Pro Snapshot -->
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.85rem; background: var(--bg-page); border-radius: var(--radius-md); margin-bottom: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="" id="hireModalProAvatar" alt="Pro" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
+                <div>
+                  <h4 id="hireModalProName" style="font-weight: 700; color: var(--dark); font-size: 0.95rem;"></h4>
+                  <span style="font-size: 0.8rem; color: var(--accent);"><i class="fa-solid fa-shield-check"></i> Verified Provider</span>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 0.75rem; color: var(--muted); display: block;">Hourly Rate</span>
+                <strong id="hireModalProRate" style="font-size: 1.15rem; color: var(--dark);"></strong>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="hireProjectTitle">Job or Project Title *</label>
+                <input type="text" id="hireProjectTitle" class="form-input" placeholder="e.g. Water Heater Leak Inspection & Valve Replacement" required />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div class="form-group">
+                  <label class="form-label" for="hireProjectDate">Preferred Date *</label>
+                  <input type="date" id="hireProjectDate" class="form-input" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="hireModalHoursInput">Estimated Hours</label>
+                  <input type="number" id="hireModalHoursInput" class="form-input" min="1" max="40" value="3" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="hireProjectAddress">Service Location / Address *</label>
+                <input type="text" id="hireProjectAddress" class="form-input" placeholder="e.g. 742 Evergreen Terrace or 'Remote / Online'" required />
+              </div>
+
+              <!-- Price Breakdown Box -->
+              <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.4rem;">
+                  <span>Service Subtotal:</span>
+                  <span id="hireEstimateSubtotal">$195</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.88rem; margin-bottom: 0.4rem; color: var(--muted);">
+                  <span>Marketplace Protection Fee (5%):</span>
+                  <span id="hireEstimateFee">$10</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.05rem; font-weight: 800; color: var(--dark); border-top: 1px solid var(--border); padding-top: 0.5rem; margin-top: 0.4rem;">
+                  <span>Total Escrow Authorization:</span>
+                  <span id="hireEstimateTotal" style="color: var(--primary);">$205</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="closeModal('hireModal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-check"></i> Authorize & Book</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 4. Post a Job Modal -->
+    <div class="modal-overlay" id="postJobModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span class="modal-title">Post a Service Request</span>
+            <span class="badge badge-accent" style="font-size: 0.75rem;">100% Free</span>
+          </div>
+          <button class="modal-close-btn" onclick="closeModal('postJobModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form id="postJobForm">
+          <div class="modal-body">
+            <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem;">
+              Receive competitive quotes from pre-vetted local specialists within 15 minutes.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="jobTitleInput">Job Title / Summary *</label>
+                <input type="text" id="jobTitleInput" class="form-input" placeholder="e.g. Need licensed electrician to install Tesla EV Wall Charger" required />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div class="form-group">
+                  <label class="form-label" for="jobCategorySelect">Service Category *</label>
+                  <select id="jobCategorySelect" class="form-select" required>
+                    <option value="">Select Category</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="jobUrgencySelect">Urgency / Timeline</label>
+                  <select id="jobUrgencySelect" class="form-select">
+                    <option value="emergency">Urgent (Today / ASAP)</option>
+                    <option value="48h">Within 48 Hours</option>
+                    <option value="week">Next Week</option>
+                    <option value="flexible">Flexible</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div class="form-group">
+                  <label class="form-label" for="jobLocationInput">Location (City or Remote) *</label>
+                  <input type="text" id="jobLocationInput" class="form-input" placeholder="e.g. Austin, TX or Remote" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="jobBudgetInput">Estimated Budget ($)</label>
+                  <input type="text" id="jobBudgetInput" class="form-input" placeholder="e.g. $150 - $300" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="jobDescriptionInput">Project Description & Requirements *</label>
+                <textarea id="jobDescriptionInput" class="form-textarea" placeholder="Detail the exact problem, measurements, materials on-site, and desired results..." required></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline" onclick="closeModal('postJobModal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Publish Job Posting</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 5. Auth (Login & Sign Up) Modal -->
+    <div class="modal-overlay" id="authModal">
+      <div class="modal-content">
+        <div class="modal-header" style="border-bottom: none; padding-bottom: 0;">
+          <span class="modal-title">Account Access</span>
+          <button class="modal-close-btn" onclick="closeModal('authModal')"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="modal-body" style="padding-top: 1rem;">
+          <!-- Tabs Switcher -->
+          <div class="auth-tabs">
+            <button type="button" class="auth-tab-btn active" id="tabAuthLogin" onclick="switchAuthTab('login')">Log In</button>
+            <button type="button" class="auth-tab-btn" id="tabAuthSignup" onclick="switchAuthTab('signup')">Create Account</button>
+          </div>
+
+          <!-- Role selector -->
+          <div class="role-switcher" id="roleSwitcher">
+            <div class="role-option active" id="roleCustomer" onclick="this.classList.add('active'); document.getElementById('rolePro').classList.remove('active');">
+              <i class="fa-solid fa-user"></i> I want to Hire
+            </div>
+            <div class="role-option" id="rolePro" onclick="this.classList.add('active'); document.getElementById('roleCustomer').classList.remove('active');">
+              <i class="fa-solid fa-briefcase"></i> I am a Specialist
+            </div>
+          </div>
+
+          <!-- Login Form -->
+          <form id="authLoginForm">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" class="form-input" placeholder="alex@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <div style="display: flex; justify-content: space-between;">
+                  <label class="form-label" for="loginPassword">Password</label>
+                  <a href="#hero" style="font-size: 0.78rem; color: var(--primary);" onclick="showToast('Password reset link sent to demo inbox', 'info')">Forgot?</a>
+                </div>
+                <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required />
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                Sign In to SkillHire
+              </button>
+            </div>
+          </form>
+
+          <!-- Sign Up Form -->
+          <form id="authSignupForm" style="display: none;">
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+              <div class="form-group">
+                <label class="form-label" for="signupName">Full Name</label>
+                <input type="text" id="signupName" class="form-input" placeholder="Alex Morgan" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" class="form-input" placeholder="alex@example.com" required />
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                <div class="form-group">
+                  <label class="form-label" for="signupPassword">Password</label>
+                  <input type="password" id="signupPassword" class="form-input" placeholder="Min. 6 chars" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="signupConfirmPassword">Confirm</label>
+                  <input type="password" id="signupConfirmPassword" class="form-input" placeholder="Re-type" required />
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; margin-top: 0.25rem;">
+                <input type="checkbox" id="signupTerms" required checked />
+                <label for="signupTerms" style="color: var(--slate-600);">I accept the <a href="#hero" style="color: var(--primary);">Terms of Service</a> & Privacy Policy</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+                Create Free Account
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Core Vanilla JavaScript Engine -->
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

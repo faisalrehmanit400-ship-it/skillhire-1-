@@ -1,0 +1,6 @@
+{
+  "name": "SkillHire",
+  "description": "Professional service marketplace to find, compare, and hire vetted local and remote skilled professionals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
